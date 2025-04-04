@@ -1,11 +1,4 @@
-import './App.css';
-import React, { useEffect } from 'react';
-import Card from './Card';
-
-function App() {
-  const [cards, setCards] = React.useState([])
-
-  const obj = [{
+[{
     "id": 1,
     "fullName": "John Andrews",
     "name": {
@@ -51,23 +44,3 @@ function App() {
     "email": "dave@example.com"
     }
    ]
-
-  useEffect(() => {
-    const fetchCards = async() => {
-
-      const cardmas = await Promise.all(obj.map(async (card) => {
-        return {...card};
-      }));
-      setCards(cardmas);
-    }
-
-    fetchCards();
-  })
-  return ( 
-    <div className = 'App' >
-      <Card cards = { cards }/>
-    </div>
-  );
-}
-
-export default App;
