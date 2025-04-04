@@ -1,0 +1,280 @@
+@font-face {
+    font-family: 'Inter';
+    src: url(../fonts/inter.ttf);
+}
+
+.container {
+    display: grid;
+}
+
+.header {
+    background: rgb(27, 84, 221);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-inline: 60px;
+}
+
+.heading-text {
+    color: rgb(255, 255, 255);
+    font-family: Impact;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0px;
+    text-align: center;
+    width: 100px;
+}
+
+.h1 {
+    color: rgb(255, 255, 255);
+    font-family: Inter;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 44px;
+    letter-spacing: 0px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.h2 {
+    color: rgb(255, 255, 255);
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 250;
+    line-height: 17px;
+    letter-spacing: 0px;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 32px;
+}
+
+.img-heading {
+    background-image: url("../img/Photo-16x9.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    max-height: 400px;
+    aspect-ratio: 16 / 9;
+    margin-bottom: 32px;
+}
+
+.img-1,
+.img-2,
+.img-3 {
+    width: 240px;
+    height: 240px;
+    flex: none;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.img-1 {
+    background-image: url("../img/Cat1.png");
+}
+
+.img-2 {
+    background-image: url("../img/Cat2.png");
+}
+
+.img-3 {
+    background-image: url("../img/Cat3.png");
+}
+
+.button1,
+.button2 {
+    display: flex;
+    height: 40px;
+    width: 110px;
+    border-radius: 3px;
+    margin-bottom: 32px;
+    justify-content: center;
+    align-items: center;
+}
+
+.button1 {
+    background-color: white;
+}
+
+.button2 {
+    background: rgb(27, 84, 221);
+    margin-top: 32px;
+}
+
+.button-text1,
+.button-text2 {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 17px;
+    letter-spacing: 0px;
+    text-align: center;
+    margin: 0px;
+}
+
+.button-text1 {
+    color: rgb(26, 32, 40);
+}
+
+.button-text2 {
+    color: white;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-inline: 60px;
+    padding-top: 32px;
+    gap: 32px;
+}
+
+.div-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.div-column {
+    display: flex;
+    flex-direction: column;
+    max-height: 200px;
+}
+
+.p1 {
+    color: rgb(38, 38, 38);
+    font-family: Inter;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 29px;
+    letter-spacing: 0px;
+    text-align: left;
+    margin-left: 32px;
+    margin-block: 16px;
+}
+
+.p2 {
+    color: rgb(38, 38, 38);
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 17px;
+    letter-spacing: 0px;
+    text-align: left;
+    margin-left: 32px;
+    margin-block: 16px;
+}
+
+.p3 {
+    color: rgb(27, 84, 221);
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 17px;
+    letter-spacing: 0px;
+    text-align: left;
+    margin-left: 32px;
+    margin-block: 16px;
+}
+
+.footer {
+    background-color: rgb(232, 232, 232);
+    padding: 32px;
+    align-items: center;
+}
+
+.contact-img1,
+.contact-img2,
+.contact-img3 {
+    width: 18px;
+    height: 18px;
+    flex: none;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.contact-img1 {
+    background-image: url("../img/Vector1.svg");
+    margin-top: 3px;
+}
+
+.contact-img2 {
+    background-image: url("../img/Vector2.svg");
+}
+
+.contact-img3 {
+    background-image: url("../img/Vector3.svg");
+}
+
+.div-row-center {
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 60px;
+}
+
+.f1 {
+    color: rgb(38, 38, 38);
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    letter-spacing: 0px;
+    text-align: center;
+}
+
+.f2 {
+    color: rgb(38, 38, 38);
+    font-family: Inter;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0px;
+    text-align: center;
+    margin: 0px;
+}
+
+.dmi {
+    background-image: url("../img/DMI.svg");
+    width: 40px;
+    height: 22px;
+    flex: none;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-top: 20px;
+}
+
+@media screen and (max-width:700px) {
+    .div-row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .p1,
+    .p2,
+    .p3 {
+        margin-left: 0px;
+    }
+    .img-heading {
+        background-image: url("../img/Photo-16x9-1.png");
+    }
+    .img-1 {
+        background-image: url("../img/Cat1sized.png");
+    }
+    .img-2 {
+        background-image: url("../img/Cat2sized.png");
+    }
+    .img-3 {
+        background-image: url("../img/Cat3sized.png");
+    }
+    .header {
+        padding-inline: 20px;
+    }
+    .main {
+        padding-inline: 20px;
+    }
+}
