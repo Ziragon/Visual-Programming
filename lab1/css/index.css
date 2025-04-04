@@ -1,0 +1,110 @@
+.header-bg {
+    background-image: url("../img/zenith-bg.png");
+    background-size: cover;
+    background-position: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    height: 300px;
+}
+
+.heading-text,
+.under-heading-text {
+    color: white;
+    margin: 0;
+    text-align: center;
+}
+
+.heading-text {
+    font-size: 80px;
+}
+
+.under-heading-text {
+    font-size: 32px;
+}
+
+.main {
+    margin: 80px;
+}
+
+.section-content-images {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-block: 20px;
+}
+
+.section-content-paragraphs {
+    display: flex;
+    flex-direction: column;
+    margin-block: 20px;
+}
+
+.content-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-inline: 8%;
+}
+
+.icon-text {
+    font-size: 20px;
+}
+
+.icon-image {
+    width: 100px;
+    height: 100px;
+}
+
+.section-paragraphs {
+    border-left: 2px solid gray;
+    font-size: 24px;
+    margin-block: 10px;
+    margin-left: 20px;
+    padding-left: 10px;
+}
+
+.text1p,
+.text2p,
+.text3p,
+.text4p {
+    border-left: 2px solid;
+    font-size: 24px;
+    margin-block: 10px;
+    margin-left: 20px;
+    padding-left: 10px;
+    border-width: 10px;
+}
+
+.text1p {
+    border-left-color: rgb(82, 82, 82);
+    opacity: 50%;
+}
+
+.text2p {
+    border-left-color: rgb(158, 111, 40);
+    opacity: 75%;
+}
+
+.text3p {
+    border-left-color: rgb(158, 111, 40);
+    opacity: 75%;
+}
+
+.text4p {
+    border-left-color: orange;
+}
+
+.footer {
+    background-color: rgb(131, 70, 0);
+    opacity: 75%;
+    height: 75px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.footer-text {
+    color: white;
+    font-size: 24px;
+}
