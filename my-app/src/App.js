@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import DataSet from './components/DataSet';
+import './App.css'
 
-function App() {
+const App = () => {
+
+  const headers = "🍎🍌🍇 Fruits";
+  
+  const data = [
+    "🍎 Apple",
+    "🍊 Orange",
+    "🍌 Banana",
+  ]
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <DataSet 
+        headers={headers}
+        children={data}
+        renderHeader={(headers) => headers}
+        renderChildren={(value) => value}
+      />
     </div>
   );
-}
+};
 
 export default App;
