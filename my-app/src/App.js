@@ -1,23 +1,47 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useEffect, useState } from 'react';
+import ObjOut from './ObjOut';
+import SearchAndSort from './SortAndSearch';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  const [objs, setObjs] = useState([])
+  const [searchTerm, setSearchTerm] = useState('');
+  const [sortOption, setSortOption] = useState('title');
+
+  useEffect(() => {
+    const fetchObjs = async() => {
+      const response = await fetch('https://jsonplaceholder.typicode.com/posts')
+      const data = await response.json();
+      const objs = await Promise.all(data.map(async (obj) => {
+        return {...obj};
+      }));
+      setObjs(objs);
+    }
+
+    fetchObjs();
+  }, [])
+
+  const filteredObjs = objs
+    .filter(obj => obj.body.toLowerCase().includes(searchTerm.toLowerCase()))
+    .sort((a,b) => {
+      let comparison = 0;
+      if (sortOption === 'title') {
+        comparison = a.title.localeCompare(b.title);
+      } else {
+        comparison = a.id === b.id;
+      }
+      return comparison;
+    })
+  
+  return ( 
+    <div className = 'App' >
+      <SearchAndSort 
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        sortOption={sortOption}
+        setSortOption={setSortOption}
+      />
+      <ObjOut objs = { filteredObjs }/>
     </div>
   );
 }
