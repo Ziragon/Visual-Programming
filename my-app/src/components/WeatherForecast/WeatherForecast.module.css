@@ -1,0 +1,43 @@
+.text_p1 {
+    margin-block: 10px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.text_p2 {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.text_p3 {
+    font-size: 16px;
+    font-weight: 500;
+    opacity: 80%;
+}
+
+.img {
+    width: '60px';
+    height: '60px';
+}
+
+.weather_card {
+    border: 3px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: white;
+}
+
+.main {
+    max-width: 800px; 
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgb(238, 238, 238);
+    border-radius: 25px;
+    margin-top: 15px;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}

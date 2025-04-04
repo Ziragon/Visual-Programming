@@ -1,0 +1,99 @@
+.header {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 25px;
+}
+
+.block_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.weather_now {
+    display: flex;
+    gap: 15px;
+}
+
+.img {
+    width: 200px;
+    height: 200px
+}
+
+.text {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.text_p1,.text_p2,.text_p3 {
+    margin-block: 24px;
+    color: white;
+}
+
+.text_p1 {
+    margin-top: 60px;
+    font-size: 32px;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.text_p2 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.text_p3 {
+    margin-top: 5px;
+    font-size: 24px;
+    font-weight: 500;
+    opacity: 80%;
+}
+
+.button {
+    margin-right: 15px;
+}
+
+.app-container {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 25px;
+  }
+  
+  /* Классы для разных типов погоды */
+  .weather-clear {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+                      url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+  }
+  
+  .weather-clouds {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+                      url('https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+  }
+  
+  .weather-rain {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+                      url('https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+  }
+  
+  .weather-thunderstorm {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                      url('https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+  }
+  
+  .weather-snow {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), 
+                      url('https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+  }
+  
+  .weather-fog {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+                      url('https://images.unsplash.com/photo-1504253163759-c23fccaebb55?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+  }
