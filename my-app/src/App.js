@@ -73,7 +73,7 @@ const App = () => {
       
       setComments(prev => prev.filter(c => !ids.includes(c.id)));
     } catch (err) {
-      setComments(comments); // Откатываем к исходным данным
+      setComments(comments);
       alert('Failed to delete comments: ' + err.message);
     }
   };
@@ -96,7 +96,7 @@ const App = () => {
       
       setComments(prev => prev.map(c => c.id === id ? { ...c, ...updatedData } : c));
     } catch (err) {
-      setComments(comments); // Откатываем к исходным данным
+      setComments(comments);
       alert('Failed to update comment: ' + err.message);
     }
   };

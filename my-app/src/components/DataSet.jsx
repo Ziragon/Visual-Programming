@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 const DataSet = ({ headers, data, renderCell, renderHeader, onAddComment, onDeleteSelected, onUpdateItem}) => {
     const [isCtrlDown, setIsCtrlDown] = useState(false);
     const [selectedIds, setSelectedIds] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
     
     const onClickHandler = (id) => {
         setSelectedIds(prev => {
@@ -17,6 +18,10 @@ const DataSet = ({ headers, data, renderCell, renderHeader, onAddComment, onDele
             }
         });
     }
+
+    const indexOfLastItem = currentPage * 20;
+    const indexOfFirstItem = indexOfLastItem - 20;
+    const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
 
     const headerReplace = () => {
         if (headers && headers.length > 0) {
@@ -52,12 +57,7 @@ const DataSet = ({ headers, data, renderCell, renderHeader, onAddComment, onDele
         }
     };
 
-    const handleUpdateSelected = () => {
-        if (selectedIds.length !== 1) {
-            alert('Please select exactly one item to update');
-            return;
-        }
-    
+    const handleUpdateSelected = () => { 
         const itemToUpdate = data.find(item => item.id === selectedIds[0]);
         if (!itemToUpdate) return;
     
@@ -73,6 +73,27 @@ const DataSet = ({ headers, data, renderCell, renderHeader, onAddComment, onDele
             onUpdateItem(selectedIds[0], updatedData);
             setSelectedIds([]);
         }
+    };
+
+    const handlePageChange = (pageNumber) => {
+        setCurrentPage(pageNumber);
+        setSelectedIds([]);
+    };
+
+    const renderPagination = () => {
+        const pageButtons = [];
+        for (let i = 1; i <= Math.ceil(data.length/20); i++) {
+            pageButtons.push(
+                <button
+                    key={i}
+                    onClick={() => handlePageChange(i)}
+                    disabled={currentPage === i}
+                >
+                    {i}
+                </button>
+            );
+        }
+        return pageButtons;
     };
 
     return (
@@ -105,13 +126,13 @@ const DataSet = ({ headers, data, renderCell, renderHeader, onAddComment, onDele
                     </tr>
                 </thead>
                 <tbody>
-                    {data.map((item, index) => (
+                    {currentItems.map((item, index) => (
                         <tr key={item.id} className={selectedIds.includes(item.id) ? 'row-selected' : ''}>
                             <td
                                 className='select-left'
                                 onClick={() => onClickHandler(item.id)}
                             >
-                                {index+1}
+                                {indexOfFirstItem + index + 1}
                             </td>
                             {headerReplace().map((header) => (
                                 <td className='td' key={header.key}>{renderCell ? renderCell(item[header.key]) : item[header.key]}</td>
@@ -120,6 +141,9 @@ const DataSet = ({ headers, data, renderCell, renderHeader, onAddComment, onDele
                     ))}
                 </tbody>
             </table>
+            <div>
+                {renderPagination()}
+            </div>
         </div>
     );
 };
