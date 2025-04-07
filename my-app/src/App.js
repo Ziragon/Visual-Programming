@@ -1,29 +1,115 @@
-import React from 'react';
+import React, {useState, useEffect, useOptimistic, startTransition} from 'react';
 import DataSet from './components/DataSet';
 import './App.css'
 
 const App = () => {
-  const data = [
-    { id: 1, name: 'Evgeniy Krivenyshev', age: 20, height: 185},
-    { id: 2, name: 'John Wick', age: 32, height: 178 },
-    { id: 3, name: 'Daniil Malcev', age: 19, height: 181 },
-    { id: 4, name: 'Nikita Shushakov', age: 20, height: 130},
-    { id: 5, name: 'Oleg Dobrynin', age: 21, height: 187 },
-    { id: 6, name: 'Denis Litvinenko', age: 18, height: 150 },
-  ];
+  const [comments, setComments] = useState([]);
+  const [optimisticComments, addOptimisticComment] = useOptimistic(
+    comments,
+    (state, newComment) => {
+      if (newComment.action === 'add') {
+        return [{ ...newComment.data, id: comments.length + 1 }, ...state];
+      }
+      if (newComment.action === 'delete') {
+        return state.filter(comment => !newComment.ids.includes(comment.id));
+      }
+      if (newComment.action === 'update') {
+        return state.map(comment => 
+          comment.id === newComment.id ? { ...comment, ...newComment.data } : comment
+        );
+      }
+      return state;
+    }
+  );
 
-  const headers = [
-    { key: 'name', title: 'Full Name' },
-    { key: 'age', title: 'Age' },
-    { key: 'height', title: 'Height' }
-  ];
+  useEffect(() => {
+    const fetchData = async () => {
+        const response = await fetch('https://jsonplaceholder.typicode.com/comments');
+        const data = await response.json();
+        setComments(data);
+    };
+
+    fetchData();
+  }, []);
+
+  const addComment = async (newComment) => {
+    try {
+      startTransition(() => {
+        addOptimisticComment({ action: 'add', data: newComment });
+      });
+      
+      const response = await fetch('https://jsonplaceholder.typicode.com/comments', {
+        method: 'POST',
+        body: JSON.stringify(newComment),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      });
+      
+      if (!response.ok) throw new Error('Failed to add comment');
+      
+      const data = await response.json();
+      setComments(prev => [data, ...prev]);
+    } catch (err) {
+      setComments(comments);
+      alert('Failed to add comment: ' + err.message);
+    }
+  };
+
+  const deleteComments = async (ids) => {
+    try {
+      startTransition(() => {
+        addOptimisticComment({ action: 'delete', ids });
+      });
+
+      const deletePromises = ids.map(id => 
+        fetch(`https://jsonplaceholder.typicode.com/comments/${id}`, {
+          method: 'DELETE',
+        })
+      );
+      
+      const results = await Promise.all(deletePromises);
+      if (results.some(r => !r.ok)) throw new Error('Some deletions failed');
+      
+      setComments(prev => prev.filter(c => !ids.includes(c.id)));
+    } catch (err) {
+      setComments(comments); // Откатываем к исходным данным
+      alert('Failed to delete comments: ' + err.message);
+    }
+  };
+
+  const updateComment = async (id, updatedData) => {
+    try {
+      startTransition(() => {
+        addOptimisticComment({ action: 'update', id, data: updatedData });
+      });
+
+      const response = await fetch(`https://jsonplaceholder.typicode.com/comments/${id}`, {
+        method: 'PATCH',
+        body: JSON.stringify(updatedData),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      });
+      
+      if (!response.ok) throw new Error('Failed to update comment');
+      
+      setComments(prev => prev.map(c => c.id === id ? { ...c, ...updatedData } : c));
+    } catch (err) {
+      setComments(comments); // Откатываем к исходным данным
+      alert('Failed to update comment: ' + err.message);
+    }
+  };
 
   return (
     <div>
       <DataSet
-        data={data}
+        data={optimisticComments}
         renderCell={(item) => item}
         renderHeader={(header) => header.title}
+        onAddComment={addComment}
+        onDeleteSelected={deleteComments}
+        onUpdateItem={updateComment}
         />
     </div>
   );
