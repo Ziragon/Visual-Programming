@@ -1,118 +1,97 @@
-import React, {useState, useEffect, useOptimistic, startTransition} from 'react';
-import DataSet from './components/DataSet';
-import './App.css'
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import TablePage from './components/TablePage'
+import './App.css';
 
 const App = () => {
-  const [comments, setComments] = useState([]);
-  const [optimisticComments, addOptimisticComment] = useOptimistic(
-    comments,
-    (state, newComment) => {
-      if (newComment.action === 'add') {
-        return [{ ...newComment.data, id: comments.length + 1 }, ...state];
-      }
-      if (newComment.action === 'delete') {
-        return state.filter(comment => !newComment.ids.includes(comment.id));
-      }
-      if (newComment.action === 'update') {
-        return state.map(comment => 
-          comment.id === newComment.id ? { ...comment, ...newComment.data } : comment
-        );
-      }
-      return state;
-    }
-  );
+  const [data, setData] = useState({
+    comments: [],
+    posts: [],
+    albums: [],
+    todos: [],
+    users: [],
+    loading: true,
+    error: null
+  });
 
   useEffect(() => {
-    const fetchData = async () => {
-        const response = await fetch('https://jsonplaceholder.typicode.com/comments');
-        const data = await response.json();
-        setComments(data);
+    const fetchAllData = async () => {
+      try {
+        const urls = {
+          comments: 'https://jsonplaceholder.typicode.com/comments',
+          posts: 'https://jsonplaceholder.typicode.com/posts',
+          albums: 'https://jsonplaceholder.typicode.com/albums',
+          todos: 'https://jsonplaceholder.typicode.com/todos',
+          users: 'https://jsonplaceholder.typicode.com/users',
+        };
+
+        const responses = await Promise.all([
+          fetch(urls.comments),
+          fetch(urls.posts),
+          fetch(urls.albums),
+          fetch(urls.todos),
+          fetch(urls.users),
+        ]);
+
+        const [comments, posts, albums, todos, users] = await Promise.all(
+          responses.map(res => res.json())
+        );
+
+        setData({
+          comments,
+          posts,
+          albums,
+          todos,
+          users,
+          loading: false,
+          error: null
+        });
+      } catch (error) {
+        setData(prev => ({
+          ...prev,
+          loading: false,
+          error: error.message
+        }));
+      }
     };
 
-    fetchData();
+    fetchAllData();
   }, []);
 
-  const addComment = async (newComment) => {
-    try {
-      startTransition(() => {
-        addOptimisticComment({ action: 'add', data: newComment });
-      });
-      
-      const response = await fetch('https://jsonplaceholder.typicode.com/comments', {
-        method: 'POST',
-        body: JSON.stringify(newComment),
-        headers: {
-          'Content-type': 'application/json; charset=UTF-8',
-        },
-      });
-      
-      if (!response.ok) throw new Error('Failed to add comment');
-      
-      const data = await response.json();
-      setComments(prev => [data, ...prev]);
-    } catch (err) {
-      setComments(comments);
-      alert('Failed to add comment: ' + err.message);
-    }
-  };
-
-  const deleteComments = async (ids) => {
-    try {
-      startTransition(() => {
-        addOptimisticComment({ action: 'delete', ids });
-      });
-
-      const deletePromises = ids.map(id => 
-        fetch(`https://jsonplaceholder.typicode.com/comments/${id}`, {
-          method: 'DELETE',
-        })
-      );
-      
-      const results = await Promise.all(deletePromises);
-      if (results.some(r => !r.ok)) throw new Error('Some deletions failed');
-      
-      setComments(prev => prev.filter(c => !ids.includes(c.id)));
-    } catch (err) {
-      setComments(comments);
-      alert('Failed to delete comments: ' + err.message);
-    }
-  };
-
-  const updateComment = async (id, updatedData) => {
-    try {
-      startTransition(() => {
-        addOptimisticComment({ action: 'update', id, data: updatedData });
-      });
-
-      const response = await fetch(`https://jsonplaceholder.typicode.com/comments/${id}`, {
-        method: 'PATCH',
-        body: JSON.stringify(updatedData),
-        headers: {
-          'Content-type': 'application/json; charset=UTF-8',
-        },
-      });
-      
-      if (!response.ok) throw new Error('Failed to update comment');
-      
-      setComments(prev => prev.map(c => c.id === id ? { ...c, ...updatedData } : c));
-    } catch (err) {
-      setComments(comments);
-      alert('Failed to update comment: ' + err.message);
-    }
-  };
+  if (data.loading) return <div className="loading">Loading all data...</div>;
+  if (data.error) return <div className="error">Error: {data.error}</div>;
 
   return (
-    <div>
-      <DataSet
-        data={optimisticComments}
-        renderCell={(item) => item}
-        renderHeader={(header) => header.title}
-        onAddComment={addComment}
-        onDeleteSelected={deleteComments}
-        onUpdateItem={updateComment}
-        />
-    </div>
+    <Router>
+      <div className="app-container">
+        <nav className="sidebar">
+          <h2>Navigation</h2>
+          <ul>
+            <li><Link to="/comments">Comments</Link></li>
+            <li><Link to="/posts">Posts</Link></li>
+            <li><Link to="/albums">Albums</Link></li>
+            <li><Link to="/todos">Todos</Link></li>
+            <li><Link to="/users">Users</Link></li>
+          </ul>
+        </nav>
+        <div className="content">
+          <Routes>
+            <Route path="/" element={<div>Select a table from the sidebar</div>} />
+            <Route path="/comments" element={<TableWrapper data={data.comments} type="comments" />} />
+            <Route path="/posts" element={<TableWrapper data={data.posts} type="posts" />} />
+            <Route path="/albums" element={<TableWrapper data={data.albums} type="albums" />} />
+            <Route path="/todos" element={<TableWrapper data={data.todos} type="todos" />} />
+            <Route path="/users" element={<TableWrapper data={data.users} type="users" />} />
+          </Routes>
+        </div>
+      </div>
+    </Router>
   );
+};
+
+const TableWrapper = ({ data, type }) => {
+  const location = useLocation();
+  return <TablePage key={location.pathname} data={data} type={type} />;
 };
 
 export default App;
