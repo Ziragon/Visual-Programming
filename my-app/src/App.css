@@ -1,38 +1,153 @@
-.App {
+.row-selected {
+  background-color: rgb(255, 232, 255);
+}
+
+.td {
+  text-align: center;
+  border: 1px solid black;
+  padding-inline: 10px;
+  min-width: 20px;
+}
+
+.select-left {
+  min-width: 20px;
+  border: 1px solid black;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.border {
+  border: 1px solid black;
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.table {
+  border: 1px solid black;
+  gap: 0px;
+  border-collapse: collapse;
+  margin: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+button {
+  margin: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+input {
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.table-controls {
+  margin-bottom: 10px;
+}
+
+.app-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 100px;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+}
+
+.sidebar h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #333;
+}
+
+.sidebar a:hover {
+  color: #0066cc;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+}
+
+.add-form {
+  margin-bottom: 5px;
+  padding: 15px;
+  background: #f5f5f5;
+  border-radius: 5px;
+}
+
+.add-form h3 {
+  margin-top: 0;
+}
+
+.form-group,.form-group-1 {
+  margin-bottom: 10px;
+}
+
+.form-group-1 {
+  border: 1px solid white;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.form-group label, .form-group-1 p {
+  display: block;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.form-group p {
+  font-size: 40px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="checkbox"]{
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.form-group input[type="checkbox"]{
+  width: 20px;
+}
+
+.error {
+  color: red;
+  font-size: 0.8em;
+  margin-top: 5px;
+}
+
+button[type="submit"] {
+  background: #4CAF50;
   color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+button[type="submit"]:hover {
+  background: #45a049;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button[type="submit"]:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
 }
