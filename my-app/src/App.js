@@ -8,7 +8,7 @@ const App = () => {
     comments,
     (state, newComment) => {
       if (newComment.action === 'add') {
-        return [{ ...newComment.data, id: comments.length + 1 }, ...state];
+        return [{ id: Date.now(), ...newComment.data }, ...state];
       }
       if (newComment.action === 'delete') {
         return state.filter(comment => !newComment.ids.includes(comment.id));
@@ -24,7 +24,7 @@ const App = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-        const response = await fetch('https://jsonplaceholder.typicode.com/comments');
+        const response = await fetch('http://localhost:5158/comments');
         const data = await response.json();
         setComments(data);
     };
@@ -37,8 +37,7 @@ const App = () => {
       startTransition(() => {
         addOptimisticComment({ action: 'add', data: newComment });
       });
-      
-      const response = await fetch('https://jsonplaceholder.typicode.com/comments', {
+      const response = await fetch('http://localhost:5158/comments', {
         method: 'POST',
         body: JSON.stringify(newComment),
         headers: {
@@ -46,10 +45,8 @@ const App = () => {
         },
       });
       
-      if (!response.ok) throw new Error('Failed to add comment');
-      
       const data = await response.json();
-      setComments(prev => [data, ...prev]);
+      setComments(prev => [...prev, data]);
     } catch (err) {
       setComments(comments);
       alert('Failed to add comment: ' + err.message);
@@ -63,7 +60,7 @@ const App = () => {
       });
 
       const deletePromises = ids.map(id => 
-        fetch(`https://jsonplaceholder.typicode.com/comments/${id}`, {
+        fetch(`http://localhost:5158/comments/${id}`, {
           method: 'DELETE',
         })
       );
@@ -84,7 +81,7 @@ const App = () => {
         addOptimisticComment({ action: 'update', id, data: updatedData });
       });
 
-      const response = await fetch(`https://jsonplaceholder.typicode.com/comments/${id}`, {
+      const response = await fetch(`http://localhost:5158/comments/${id}`, {
         method: 'PATCH',
         body: JSON.stringify(updatedData),
         headers: {
@@ -93,7 +90,6 @@ const App = () => {
       });
       
       if (!response.ok) throw new Error('Failed to update comment');
-      
       setComments(prev => prev.map(c => c.id === id ? { ...c, ...updatedData } : c));
     } catch (err) {
       setComments(comments);

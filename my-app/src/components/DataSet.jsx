@@ -45,6 +45,7 @@ const DataSet = ({ headers, data, renderCell, renderHeader, onAddComment, onDele
         headerReplace().forEach((header) => {
             comment[header.title] = prompt(`Enter ${header.title}`);
         });
+        comment['id'] = data.length + 1;
         if (comment) {
             onAddComment(comment);
         }
