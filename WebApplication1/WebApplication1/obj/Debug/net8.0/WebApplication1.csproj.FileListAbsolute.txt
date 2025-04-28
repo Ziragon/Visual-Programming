@@ -75,3 +75,6 @@ C:\Users\Administrator\Visual-Programming\WebApplication1\WebApplication1\obj\De
 C:\Users\Administrator\Visual-Programming\WebApplication1\WebApplication1\obj\Debug\net8.0\WebApplication1.pdb
 C:\Users\Administrator\Visual-Programming\WebApplication1\WebApplication1\obj\Debug\net8.0\WebApplication1.genruntimeconfig.cache
 C:\Users\Administrator\Visual-Programming\WebApplication1\WebApplication1\obj\Debug\net8.0\ref\WebApplication1.dll
+C:\Users\Administrator\Visual-Programming\WebApplication1\WebApplication1\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Administrator\Visual-Programming\WebApplication1\WebApplication1\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Administrator\Visual-Programming\WebApplication1\WebApplication1\bin\Debug\net8.0\Npgsql.dll

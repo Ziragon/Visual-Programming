@@ -22,6 +22,14 @@ const App = () => {
     }
   );
 
+  const headers = [
+    "postId",
+    "id",
+    "name",
+    "email",
+    "body",
+  ]
+
   useEffect(() => {
     const fetchData = async () => {
         const response = await fetch('http://localhost:5158/comments');
@@ -101,6 +109,7 @@ const App = () => {
     <div>
       <DataSet
         data={optimisticComments}
+        headers={headers}
         renderCell={(item) => item}
         renderHeader={(header) => header.title}
         onAddComment={addComment}
