@@ -23,12 +23,11 @@ const App = () => {
   );
 
   const headers = [
-    "postId",
-    "id",
-    "name",
-    "email",
-    "body",
-  ]
+    { key: 'postId', title: 'postId' },
+    { key: 'name', title: 'name' },
+    { key: 'email', title: 'email' },
+    { key: 'body', title: 'body' }
+  ];
 
   useEffect(() => {
     const fetchData = async () => {

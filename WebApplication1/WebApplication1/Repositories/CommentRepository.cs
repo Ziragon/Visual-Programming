@@ -1,5 +1,6 @@
 ﻿using DZ10.Model;
 using Npgsql;
+using System.Diagnostics;
 
 namespace DZ10.Repositories
 {
@@ -25,7 +26,6 @@ namespace DZ10.Repositories
                     cmd.Parameters.AddWithValue("@name", comment.name);
                     cmd.Parameters.AddWithValue("@email", comment.email);
                     cmd.Parameters.AddWithValue("@body", comment.body);
-
                     comment.id = (int)cmd.ExecuteScalar();
                 }
             }
