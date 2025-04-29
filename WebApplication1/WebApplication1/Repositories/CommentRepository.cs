@@ -1,6 +1,5 @@
 ﻿using DZ10.Model;
 using Npgsql;
-using System.Diagnostics;
 
 namespace DZ10.Repositories
 {
