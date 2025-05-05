@@ -1,0 +1,66 @@
+/* Основные стили контейнера */
+.logs-container {
+  font-family: Arial, sans-serif;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Стили фильтров */
+.filters {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+.filters input {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  flex-grow: 1;
+  max-width: 300px;
+}
+
+.filters select {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: white;
+}
+
+/* Стили таблицы */
+.logs-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.logs-table th, .logs-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.logs-table th {
+  background-color: #f2f2f2;
+  cursor: pointer;
+  position: relative;
+}
+
+.logs-table th:hover {
+  background-color: #e6e6e6;
+}
+
+/* Стили для строк таблицы */
+.logs-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.logs-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Стили для сортировки */
+.sort-arrow {
+  margin-left: 5px;
+}
