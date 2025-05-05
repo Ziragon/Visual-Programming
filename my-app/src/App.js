@@ -105,7 +105,7 @@ const App = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       <DataSet
         data={optimisticComments}
         headers={headers}

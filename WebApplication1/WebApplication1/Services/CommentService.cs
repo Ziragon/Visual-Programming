@@ -1,39 +1,127 @@
 ﻿using DZ10.Repositories;
 using DZ10.Model;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
 
 namespace DZ10.Services
 {
     public class CommentService
     {
         private readonly ICommentRepository _commentRepository;
-        public CommentService(ICommentRepository commentRepository)
+        private readonly ILogger<CommentService> _logger;
+
+        public CommentService(ILogger<CommentService> logger, ICommentRepository commentRepository)
         {
+            _logger = logger;
             _commentRepository = commentRepository;
         }
-        
-        public void AddComment(Comment comment)
+
+        public Comment AddComment(Comment comment)
         {
-            _commentRepository.Add(comment);
+            try
+            {
+                _logger.LogInformation("Attempting to add new comment");
+                var result = _commentRepository.Add(comment);
+                _logger.LogInformation($"Successfully added comment with ID: {result.id}");
+                return result;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error occurred while adding comment");
+                throw;
+            }
         }
 
-        public Comment GetCommentById(int id)
+        public Comment? GetCommentById(int id)
         {
-            return _commentRepository.GetById(id);
+            try
+            {
+                _logger.LogInformation($"Attempting to get comment with ID: {id}");
+                var comment = _commentRepository.GetById(id);
+
+                if (comment == null)
+                {
+                    _logger.LogWarning($"Comment with ID: {id} not found");
+                }
+                else
+                {
+                    _logger.LogInformation($"Successfully retrieved comment with ID: {id}");
+                }
+
+                return comment;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error occurred while getting comment with ID: {id}");
+                throw;
+            }
         }
 
-        public void DeleteComment(int id)
+        public bool DeleteComment(int id)
         {
-            _commentRepository.Delete(id);
+            try
+            {
+                _logger.LogInformation($"Attempting to delete comment with ID: {id}");
+                var result = _commentRepository.Delete(id);
+
+                if (result)
+                {
+                    _logger.LogInformation($"Successfully deleted comment with ID: {id}");
+                }
+                else
+                {
+                    _logger.LogWarning($"Comment with ID: {id} not found for deletion");
+                }
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error occurred while deleting comment with ID: {id}");
+                throw;
+            }
         }
 
-        public void UpdateComment(int id, Comment comment)
+        public Comment? UpdateComment(int id, Comment comment)
         {
-            _commentRepository.Update(id, comment);
+            try
+            {
+                _logger.LogInformation($"Attempting to update comment with ID: {id}");
+                var result = _commentRepository.Update(id, comment);
+
+                if (result == null)
+                {
+                    _logger.LogWarning($"Comment with ID: {id} not found for update");
+                }
+                else
+                {
+                    _logger.LogInformation($"Successfully updated comment with ID: {id}");
+                }
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error occurred while updating comment with ID: {id}");
+                throw;
+            }
         }
 
         public IEnumerable<Comment> GetAllComments()
         {
-            return _commentRepository.GetAll();
+            try
+            {
+                _logger.LogInformation("Attempting to get all comments");
+                var comments = _commentRepository.GetAll();
+                _logger.LogInformation($"Successfully retrieved {comments.Count()} comments");
+                return comments;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error occurred while getting all comments");
+                throw;
+            }
         }
     }
 }

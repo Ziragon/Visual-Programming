@@ -6,8 +6,8 @@ namespace DZ10.Repositories
     {
         IEnumerable<Comment> GetAll();
         Comment GetById(int id);
-        void Add(Comment comment);
-        void Update(int id, Comment comment);
-        void Delete(int id);
+        Comment Add(Comment comment);
+        Comment Update(int id, Comment comment);
+        bool Delete(int id);
     }
 }

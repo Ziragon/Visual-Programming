@@ -1,7 +1,7 @@
 [
   {
     "ContainingType": "Program\u002B\u003C\u003Ec",
-    "Method": "\u003C\u003CMain\u003E$\u003Eb__0_1",
+    "Method": "\u003C\u003CMain\u003E$\u003Eb__0_3",
     "RelativePath": "comments",
     "HttpMethod": "GET",
     "IsController": false,
@@ -19,7 +19,7 @@
   },
   {
     "ContainingType": "Program\u002B\u003C\u003Ec",
-    "Method": "\u003C\u003CMain\u003E$\u003Eb__0_3",
+    "Method": "\u003C\u003CMain\u003E$\u003Eb__0_5",
     "RelativePath": "comments",
     "HttpMethod": "POST",
     "IsController": false,
@@ -41,7 +41,7 @@
   },
   {
     "ContainingType": "Program\u002B\u003C\u003Ec",
-    "Method": "\u003C\u003CMain\u003E$\u003Eb__0_2",
+    "Method": "\u003C\u003CMain\u003E$\u003Eb__0_4",
     "RelativePath": "comments/{id}",
     "HttpMethod": "GET",
     "IsController": false,
@@ -65,7 +65,7 @@
   },
   {
     "ContainingType": "Program\u002B\u003C\u003Ec",
-    "Method": "\u003C\u003CMain\u003E$\u003Eb__0_4",
+    "Method": "\u003C\u003CMain\u003E$\u003Eb__0_6",
     "RelativePath": "comments/{id}",
     "HttpMethod": "PATCH",
     "IsController": false,
@@ -84,15 +84,17 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Void",
-        "MediaTypes": [],
+        "Type": "DZ10.Model.Comment",
+        "MediaTypes": [
+          "application/json"
+        ],
         "StatusCode": 200
       }
     ]
   },
   {
     "ContainingType": "Program\u002B\u003C\u003Ec",
-    "Method": "\u003C\u003CMain\u003E$\u003Eb__0_5",
+    "Method": "\u003C\u003CMain\u003E$\u003Eb__0_7",
     "RelativePath": "comments/{id}",
     "HttpMethod": "DELETE",
     "IsController": false,
@@ -106,8 +108,28 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Void",
-        "MediaTypes": [],
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Program\u002B\u003C\u003Ec",
+    "Method": "\u003C\u003CMain\u003E$\u003Eb__0_8",
+    "RelativePath": "logs",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[WebApplication1.Model.Log, WebApplication1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "application/json"
+        ],
         "StatusCode": 200
       }
     ]

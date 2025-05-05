@@ -1,44 +1,94 @@
-.row-selected {
-  background-color: rgb(255, 232, 255);
+/* Основные стили контейнера */
+.table-controls {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
 }
 
-.td {
-  text-align: center;
-  border: 1px solid black;
-  padding-inline: 10px;
-  min-width: 20px;
+.table-controls button {
+  padding: 8px 12px;
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.select-left {
-  min-width: 20px;
-  border: 1px solid black;
-  text-align: center;
+.table-controls button:hover {
+  background-color: #e6e6e6;
 }
 
-.border {
-  border: 1px solid black;
-  padding: 0;
+.table-controls button:disabled {
+  background-color: #f9f9f9;
+  color: #aaa;
+  cursor: not-allowed;
 }
 
+/* Стили таблицы */
 .table {
-  border: 1px solid black;
-  gap: 0px;
+  width: 100%;
   border-collapse: collapse;
-  margin: 10px;
+  margin-bottom: 20px;
 }
 
-button {
-  margin: 5px;
-  padding: 5px 10px;
+.table th, .table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+/* Стили для строк таблицы */
+.table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.table tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Стили для выбранных строк */
+.row-selected {
+  background-color: #e0f7fa !important;
+}
+
+/* Стили для левой колонки с номером */
+.select-left {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  text-align: center;
   cursor: pointer;
 }
 
-input {
-  width: 100%;
-  padding: 5px;
-  box-sizing: border-box;
+/* Стили для пагинации */
+.table + div {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
 }
 
-.table-controls {
-  margin-bottom: 10px;
+.table + div button {
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  background-color: white;
+  cursor: pointer;
+}
+
+.table + div button:hover {
+  background-color: #f2f2f2;
+}
+
+.table + div button:disabled {
+  background-color: #e6e6e6;
+  font-weight: bold;
+  cursor: default;
+}
+
+.container {
+  padding: 40px;
+  padding-inline: 120px;
 }

@@ -1,119 +1,63 @@
 ﻿using DZ10.Model;
-using Npgsql;
+using Microsoft.EntityFrameworkCore;
+using WebApplication1.Repositories;
+using System.Diagnostics;
 
 namespace DZ10.Repositories
 {
     public class CommentRepository : ICommentRepository
     {
-        private readonly string _connectionString;
+        private readonly CommentContext _context;
 
-        public CommentRepository(string connectionString = "Host=localhost;Database=postgres;Username=postgres;Password=358711565")
+        public CommentRepository(CommentContext context)
         {
-            _connectionString = connectionString;
+            _context = context;
         }
 
-        public void Add(Comment comment)
+        public Comment Add(Comment comment)
         {
-            using (var connection = new NpgsqlConnection(_connectionString))
-            {
-                connection.Open();
-                using (var cmd = new NpgsqlCommand(
-                    "INSERT INTO comments (post_id, name, email, body) VALUES (@postId, @name, @email, @body) RETURNING id",
-                    connection))
-                {
-                    cmd.Parameters.AddWithValue("@postId", comment.postId);
-                    cmd.Parameters.AddWithValue("@name", comment.name);
-                    cmd.Parameters.AddWithValue("@email", comment.email);
-                    cmd.Parameters.AddWithValue("@body", comment.body);
-                    comment.id = (int)cmd.ExecuteScalar();
-                }
-            }
+            comment.id = 0;
+            _context.Comments.Add(comment);
+            _context.SaveChanges();
+            return comment;
         }
 
-        public void Delete(int id)
+        public bool Delete(int id)
         {
-            using (var connection = new NpgsqlConnection(_connectionString))
-            {
-                connection.Open();
-                using (var cmd = new NpgsqlCommand("DELETE FROM comments WHERE id = @id", connection))
-                {
-                    cmd.Parameters.AddWithValue("@id", id);
-                    cmd.ExecuteNonQuery();
-                }
-            }
+            var comment = _context.Comments.FirstOrDefault(c => c.id == id);
+            if (comment == null) return false;
+
+            _context.Comments.Remove(comment);
+            return _context.SaveChanges() > 0;
         }
 
-        public Comment GetById(int id)
+        public Comment? GetById(int id)
         {
-            using (var connection = new NpgsqlConnection(_connectionString))
-            {
-                connection.Open();
-                using (var cmd = new NpgsqlCommand("SELECT * FROM comments WHERE id = @id", connection))
-                {
-                    cmd.Parameters.AddWithValue("@id", id);
-
-                    using (var reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            return MapCommentFromReader(reader);
-                        }
-                        return null;
-                    }
-                }
-            }
+            return _context.Comments
+                .AsNoTracking()
+                .FirstOrDefault(c => c.id == id);
         }
 
-        public void Update(int id, Comment comment)
+        public Comment? Update(int id, Comment comment)
         {
-            using (var connection = new NpgsqlConnection(_connectionString))
-            {
-                connection.Open();
-                using (var cmd = new NpgsqlCommand(
-                    "UPDATE comments SET post_id = @postId, name = @name, email = @email, body = @body WHERE id = @id",
-                    connection))
-                {
-                    cmd.Parameters.AddWithValue("@id", id);
-                    cmd.Parameters.AddWithValue("@postId", comment.postId);
-                    cmd.Parameters.AddWithValue("@name", comment.name);
-                    cmd.Parameters.AddWithValue("@email", comment.email);
-                    cmd.Parameters.AddWithValue("@body", comment.body);
+            var existingComment = _context.Comments.FirstOrDefault(c => c.id == id);
+            if (existingComment == null) return null;
 
-                    cmd.ExecuteNonQuery();
-                }
-            }
+            existingComment.name = comment.name;
+            existingComment.email = comment.email;
+            existingComment.body = comment.body;
+            existingComment.postId = comment.postId;
+
+            _context.SaveChanges();
+            return existingComment;
         }
 
         public IEnumerable<Comment> GetAll()
         {
-            var comments = new List<Comment>();
-
-            using (var connection = new NpgsqlConnection(_connectionString))
-            {
-                connection.Open();
-                using (var cmd = new NpgsqlCommand("SELECT * FROM comments", connection))
-                using (var reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        comments.Add(MapCommentFromReader(reader));
-                    }
-                }
-            }
-
-            return comments;
-        }
-
-        private Comment MapCommentFromReader(NpgsqlDataReader reader)
-        {
-            return new Comment
-            {
-                id = reader.GetInt32(0),
-                postId = reader.GetInt32(1),
-                name = reader.GetString(2),
-                email = reader.GetString(3),
-                body = reader.GetString(4)
-            };
+            return _context.Comments
+                .AsNoTracking()
+                .OrderBy(c => c.id)
+                .ToList();
         }
     }
 }

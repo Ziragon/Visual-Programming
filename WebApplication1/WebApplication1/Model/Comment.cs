@@ -1,4 +1,7 @@
-﻿namespace DZ10.Model
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+
+namespace DZ10.Model
 {
     public class Comment
     {
@@ -8,6 +11,8 @@
         private string _email;
         private string _body;
 
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id
         {
             get => _id;
