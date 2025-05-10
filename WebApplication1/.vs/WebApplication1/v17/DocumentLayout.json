@@ -7,28 +7,16 @@
       "RelativeMoniker": "D:0:0:{BAB49500-62D2-41C9-B3A6-994B941911E4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\repositories\\commentcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BAB49500-62D2-41C9-B3A6-994B941911E4}|WebApplication1\\WebApplication1.csproj|c:\\users\\administrator\\visual-programming\\webapplication1\\webapplication1\\logging\\databaselogger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAB49500-62D2-41C9-B3A6-994B941911E4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\logging\\databaselogger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BAB49500-62D2-41C9-B3A6-994B941911E4}|WebApplication1\\WebApplication1.csproj|c:\\users\\administrator\\visual-programming\\webapplication1\\webapplication1\\logging\\iloggerprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAB49500-62D2-41C9-B3A6-994B941911E4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\logging\\iloggerprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BAB49500-62D2-41C9-B3A6-994B941911E4}|WebApplication1\\WebApplication1.csproj|c:\\users\\administrator\\visual-programming\\webapplication1\\webapplication1\\model\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAB49500-62D2-41C9-B3A6-994B941911E4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\model\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BAB49500-62D2-41C9-B3A6-994B941911E4}|WebApplication1\\WebApplication1.csproj|c:\\users\\administrator\\visual-programming\\webapplication1\\webapplication1\\model\\log.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BAB49500-62D2-41C9-B3A6-994B941911E4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\model\\log.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BAB49500-62D2-41C9-B3A6-994B941911E4}|WebApplication1\\WebApplication1.csproj|c:\\users\\administrator\\visual-programming\\webapplication1\\webapplication1\\repositories\\commentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAB49500-62D2-41C9-B3A6-994B941911E4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\repositories\\commentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BAB49500-62D2-41C9-B3A6-994B941911E4}|WebApplication1\\WebApplication1.csproj|c:\\users\\administrator\\visual-programming\\webapplication1\\webapplication1\\logging\\dbloggerprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAB49500-62D2-41C9-B3A6-994B941911E4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\logging\\dbloggerprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BAB49500-62D2-41C9-B3A6-994B941911E4}|WebApplication1\\WebApplication1.csproj|c:\\users\\administrator\\visual-programming\\webapplication1\\webapplication1\\repositories\\icommentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAB49500-62D2-41C9-B3A6-994B941911E4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\repositories\\icommentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BAB49500-62D2-41C9-B3A6-994B941911E4}|WebApplication1\\WebApplication1.csproj|c:\\users\\administrator\\visual-programming\\webapplication1\\webapplication1\\logging\\databaselogger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAB49500-62D2-41C9-B3A6-994B941911E4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\logging\\databaselogger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BAB49500-62D2-41C9-B3A6-994B941911E4}|WebApplication1\\WebApplication1.csproj|c:\\users\\administrator\\visual-programming\\webapplication1\\webapplication1\\services\\commentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -37,6 +25,18 @@
     {
       "AbsoluteMoniker": "D:0:0:{BAB49500-62D2-41C9-B3A6-994B941911E4}|WebApplication1\\WebApplication1.csproj|c:\\users\\administrator\\visual-programming\\webapplication1\\webapplication1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BAB49500-62D2-41C9-B3A6-994B941911E4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAB49500-62D2-41C9-B3A6-994B941911E4}|WebApplication1\\WebApplication1.csproj|c:\\users\\administrator\\visual-programming\\webapplication1\\webapplication1\\repositories\\icommentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAB49500-62D2-41C9-B3A6-994B941911E4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\repositories\\icommentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAB49500-62D2-41C9-B3A6-994B941911E4}|WebApplication1\\WebApplication1.csproj|c:\\users\\administrator\\visual-programming\\webapplication1\\webapplication1\\repositories\\commentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAB49500-62D2-41C9-B3A6-994B941911E4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\repositories\\commentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAB49500-62D2-41C9-B3A6-994B941911E4}|WebApplication1\\WebApplication1.csproj|c:\\users\\administrator\\visual-programming\\webapplication1\\webapplication1\\model\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAB49500-62D2-41C9-B3A6-994B941911E4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\model\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,30 +50,28 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Administrator\\Visual-Programming\\WebApplication1\\WebApplication1\\Program.cs",
               "RelativeDocumentMoniker": "WebApplication1\\Program.cs",
               "ToolTip": "C:\\Users\\Administrator\\Visual-Programming\\WebApplication1\\WebApplication1\\Program.cs",
               "RelativeToolTip": "WebApplication1\\Program.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAADcAAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAUAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-21T14:10:45.333Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "DataBaseLogger.cs",
               "DocumentMoniker": "C:\\Users\\Administrator\\Visual-Programming\\WebApplication1\\WebApplication1\\Logging\\DataBaseLogger.cs",
               "RelativeDocumentMoniker": "WebApplication1\\Logging\\DataBaseLogger.cs",
               "ToolTip": "C:\\Users\\Administrator\\Visual-Programming\\WebApplication1\\WebApplication1\\Logging\\DataBaseLogger.cs",
               "RelativeToolTip": "WebApplication1\\Logging\\DataBaseLogger.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwCQAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-05T13:00:20.355Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-05T13:00:20.355Z"
             },
             {
               "$type": "Document",
@@ -85,8 +83,7 @@
               "RelativeToolTip": "WebApplication1\\Repositories\\ICommentRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-21T14:10:39.831Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-21T14:10:39.831Z"
             },
             {
               "$type": "Document",
@@ -96,14 +93,14 @@
               "RelativeDocumentMoniker": "WebApplication1\\Repositories\\CommentContext.cs",
               "ToolTip": "C:\\Users\\Administrator\\Visual-Programming\\WebApplication1\\WebApplication1\\Repositories\\CommentContext.cs",
               "RelativeToolTip": "WebApplication1\\Repositories\\CommentContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-05T12:17:30.516Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "CommentRepository.cs",
               "DocumentMoniker": "C:\\Users\\Administrator\\Visual-Programming\\WebApplication1\\WebApplication1\\Repositories\\CommentRepository.cs",
               "RelativeDocumentMoniker": "WebApplication1\\Repositories\\CommentRepository.cs",
@@ -111,60 +108,56 @@
               "RelativeToolTip": "WebApplication1\\Repositories\\CommentRepository.cs",
               "ViewState": "AgIAABUAAAAAAAAAAAAowDIAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-21T14:10:39.205Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-21T14:10:39.205Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "Comment.cs",
               "DocumentMoniker": "C:\\Users\\Administrator\\Visual-Programming\\WebApplication1\\WebApplication1\\Model\\Comment.cs",
               "RelativeDocumentMoniker": "WebApplication1\\Model\\Comment.cs",
               "ToolTip": "C:\\Users\\Administrator\\Visual-Programming\\WebApplication1\\WebApplication1\\Model\\Comment.cs",
               "RelativeToolTip": "WebApplication1\\Model\\Comment.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwBYAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-21T14:10:38.51Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-21T14:10:38.51Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ILoggerProvider.cs",
-              "DocumentMoniker": "C:\\Users\\Administrator\\Visual-Programming\\WebApplication1\\WebApplication1\\Logging\\ILoggerProvider.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\Logging\\ILoggerProvider.cs",
-              "ToolTip": "C:\\Users\\Administrator\\Visual-Programming\\WebApplication1\\WebApplication1\\Logging\\ILoggerProvider.cs",
-              "RelativeToolTip": "WebApplication1\\Logging\\ILoggerProvider.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Title": "DBLoggerProvider.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Visual-Programming\\WebApplication1\\WebApplication1\\Logging\\DBLoggerProvider.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Logging\\DBLoggerProvider.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Visual-Programming\\WebApplication1\\WebApplication1\\Logging\\DBLoggerProvider.cs",
+              "RelativeToolTip": "WebApplication1\\Logging\\DBLoggerProvider.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-05T13:02:28.619Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-05T13:02:28.619Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "Log.cs",
               "DocumentMoniker": "C:\\Users\\Administrator\\Visual-Programming\\WebApplication1\\WebApplication1\\Model\\Log.cs",
               "RelativeDocumentMoniker": "WebApplication1\\Model\\Log.cs",
               "ToolTip": "C:\\Users\\Administrator\\Visual-Programming\\WebApplication1\\WebApplication1\\Model\\Log.cs",
               "RelativeToolTip": "WebApplication1\\Model\\Log.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-05T12:50:50.077Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 4,
               "Title": "CommentService.cs",
               "DocumentMoniker": "C:\\Users\\Administrator\\Visual-Programming\\WebApplication1\\WebApplication1\\Services\\CommentService.cs",
               "RelativeDocumentMoniker": "WebApplication1\\Services\\CommentService.cs",
               "ToolTip": "C:\\Users\\Administrator\\Visual-Programming\\WebApplication1\\WebApplication1\\Services\\CommentService.cs",
               "RelativeToolTip": "WebApplication1\\Services\\CommentService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGIAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAF4AAAAAAAAAAAAcwG8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-21T14:10:40.892Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-21T14:10:40.892Z"
             }
           ]
         }
